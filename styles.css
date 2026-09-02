@@ -325,6 +325,70 @@ h2 {
   font-weight: 700;
 }
 
+/* ========== PROJECT DETAIL PAGE STYLES ========== */
+.project-detail-page {
+  background: linear-gradient(180deg, var(--bg) 0%, #0a1c2a 100%);
+  color: var(--text);
+}
+
+.project-hero {
+  padding: 5rem 0 3rem;
+}
+
+.project-hero-inner {
+  max-width: 900px;
+}
+
+.project-hero .eyebrow {
+  margin-bottom: 1rem;
+}
+
+.project-hero h1 {
+  margin-bottom: 1rem;
+}
+
+.project-summary {
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 70ch;
+}
+
+.project-content {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.content-block {
+  background: rgba(16, 43, 59, 0.92);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 16px 30px var(--shadow);
+  padding: 1.6rem 1.8rem;
+}
+
+.content-block h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.content-block p,
+.content-block li {
+  color: var(--muted);
+}
+
+.content-block ul {
+  margin: 0.75rem 0 0 1.2rem;
+  padding: 0;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 1rem;
+}
+/* ========== END PROJECT DETAIL PAGE STYLES ========== */
+
 footer {
   padding: 2rem 0 3rem;
   border-top: 1px solid var(--line);
