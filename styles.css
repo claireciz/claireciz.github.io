@@ -387,6 +387,37 @@ h2 {
   display: inline-block;
   margin-top: 1rem;
 }
+
+/* ========== PROJECT POSTER STYLES ========== */
+.poster-block {
+  overflow: hidden;
+}
+
+.poster-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.poster-heading .eyebrow {
+  margin-bottom: 0.35rem;
+}
+
+.poster-heading h2 {
+  margin-bottom: 0;
+}
+
+.poster-viewer {
+  display: block;
+  width: 100%;
+  height: min(75vw, 720px);
+  min-height: 420px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+/* ========== END PROJECT POSTER STYLES ========== */
 /* ========== END PROJECT DETAIL PAGE STYLES ========== */
 
 footer {
