@@ -112,6 +112,11 @@ a:hover {
   font-weight: 700;
 }
 
+.section-header .eyebrow,
+.focus-areas .eyebrow {
+  font-size: calc(0.74rem + 2px);
+}
+
 h1 {
   font-size: clamp(2.4rem, 5vw, 4.25rem);
   line-height: 1.05;
@@ -130,25 +135,53 @@ h2 {
 }
 
 .hero {
-  padding: 5rem 0 4rem;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 5.5rem 0 4.5rem;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(rgba(7, 24, 34, 0.48), rgba(7, 24, 34, 0.48)),
+    url("files/Portfolio%20images/SLIC_banner.JPG") center 58% / cover no-repeat;
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background-image:
+    repeating-linear-gradient(90deg, transparent 0 79px, rgba(180, 220, 235, 0.045) 80px),
+    repeating-linear-gradient(0deg, transparent 0 39px, rgba(180, 220, 235, 0.035) 40px);
 }
 
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  justify-items: center;
   align-items: center;
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 900px;
+  text-align: center;
+}
+
+.hero-copy h1 {
+  margin-bottom: 0.7rem;
+}
+
+.hero-copy .lead {
+  max-width: none;
+  margin-bottom: 0;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
-  margin: 2rem 0 1.4rem;
+  margin: 2rem 0 0;
 }
 
 .btn {
@@ -227,31 +260,78 @@ h2 {
   padding: 0.2rem 0.4rem 0.5rem;
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 2rem;
+.about-copy {
+  color: var(--muted);
+}
+
+.about-copy ul {
+  margin: 0.5rem 0 0 1.2rem;
+  padding: 0;
 }
 
 .info-card {
   padding: 1.5rem;
 }
 
-.focus-areas h3 {
+.focus-areas {
+  margin-top: 4.5rem;
+}
+
+.focus-areas .eyebrow {
   margin-bottom: 1rem;
 }
 
 .focus-area-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.focus-area-grid .info-card {
-  display: flex;
-  align-items: center;
-  min-height: 7rem;
-  font-weight: 700;
+.focus-area {
+  min-width: 0;
+  padding: 1.35rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(16, 43, 59, 0.92);
+  box-shadow: 0 12px 24px var(--shadow);
+}
+
+.focus-icon {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  fill: none;
+  stroke: var(--primary);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4;
+}
+
+.focus-area:nth-child(2) .focus-icon {
+  stroke-width: 2;
+}
+
+.focus-area h4 {
+  margin: 0 0 0.45rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.focus-area p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.focus-area:nth-child(even) .focus-icon {
+  color: var(--accent);
+  stroke: var(--accent);
+}
+
+.focus-area:nth-child(even) h4 {
+  color: var(--text);
 }
 
 .info-card ul {
@@ -289,7 +369,7 @@ h2 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.2rem;
 }
 
@@ -348,7 +428,7 @@ h2 {
 .paper-card {
   padding: 1.3rem 1.5rem;
   display: grid;
-  grid-template-columns: 160px 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 1rem;
   align-items: center;
 }
@@ -369,7 +449,7 @@ h2 {
 }
 
 .project-hero-inner {
-  max-width: 900px;
+  max-width: none;
 }
 
 .project-hero .eyebrow {
@@ -390,6 +470,34 @@ h2 {
   display: grid;
   gap: 1.5rem;
   padding-bottom: 4rem;
+}
+
+.project-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+}
+
+.project-gallery figure {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(16, 43, 59, 0.92);
+}
+
+.project-gallery img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.project-gallery figcaption {
+  padding: 0.7rem 0.9rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .content-block {
@@ -429,9 +537,43 @@ h2 {
 .poster-heading {
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.25rem;
+}
+
+.poster-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.poster-controls label {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.poster-controls select {
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg-soft);
+  color: var(--text);
+  font: inherit;
+}
+
+.balloon-poster-heading {
+  align-items: flex-start;
+}
+
+.balloon-poster-heading-main .eyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.balloon-poster-heading-main .poster-controls {
+  justify-content: flex-start;
 }
 
 .poster-heading .eyebrow {
@@ -474,12 +616,13 @@ footer {
 
 @media (max-width: 860px) {
   .hero-grid,
-  .about-grid,
-  .focus-area-grid,
-  .project-grid,
   .paper-card,
   .timeline-item {
     grid-template-columns: 1fr;
+  }
+
+  .focus-area-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .nav {
@@ -494,5 +637,15 @@ footer {
 
   .hero {
     padding-top: 3.5rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .focus-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
   }
 }

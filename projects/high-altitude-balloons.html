@@ -32,6 +32,21 @@
 
       <!-- PROJECT CONTENT SECTIONS -->
       <section class="container project-content">
+        <section class="project-gallery" aria-label="High altitude balloon project photos">
+          <figure>
+            <img src="../files/Portfolio%20images/Ballons_space.JPEG" alt="View of Earth from the high-altitude balloon payload" loading="lazy" />
+            <figcaption>Earth from the balloon payload</figcaption>
+          </figure>
+          <figure>
+            <img src="../files/Portfolio%20images/Balloons_team.jpg" alt="High-altitude balloon project team" loading="lazy" />
+            <figcaption>Project team</figcaption>
+          </figure>
+          <figure>
+            <img src="../files/Portfolio%20images/Balloons_payload.jpeg" alt="Electronics and payload assembly for the balloon project" loading="lazy" />
+            <figcaption>Payload electronics</figcaption>
+          </figure>
+        </section>
+
         <!-- OVERVIEW BLOCK -->
         <article class="content-block">
           <h2>Overview</h2>
@@ -73,6 +88,30 @@
             <li>Demo video, poster, or additional resources</li>
           </ul>
         </article>
+
+        <article class="content-block poster-block">
+          <div class="poster-heading balloon-poster-heading">
+            <div class="balloon-poster-heading-main">
+              <p class="eyebrow">Project Poster</p>
+              <div class="poster-controls">
+              <label for="balloon-poster-year">Poster year</label>
+              <select id="balloon-poster-year">
+                <option value="../files/Portfolio%20files/Balloons%20Spaceposium%20Poster%202024.pptx.pdf">2024</option>
+                <option value="../files/Portfolio%20files/Balloons_Poster_2025.pptx.pdf" selected>2025</option>
+              </select>
+              </div>
+            </div>
+            <div class="poster-controls">
+              <a id="balloon-poster-open" href="../files/Portfolio%20files/Balloons_Poster_2025.pptx.pdf#toolbar=0&amp;navpanes=0&amp;view=Fit" target="_blank" rel="noreferrer">Open full size</a>
+            </div>
+          </div>
+          <iframe
+            class="poster-viewer"
+            id="balloon-poster-viewer"
+            src="../files/Portfolio%20files/Balloons_Poster_2025.pptx.pdf#toolbar=0&amp;navpanes=0&amp;view=Fit"
+            title="2025 high altitude balloon project poster"
+          ></iframe>
+        </article>
       </section>
     </main>
 
@@ -89,5 +128,17 @@
         </div>
       </div>
     </footer>
+    <script>
+      const posterYear = document.getElementById("balloon-poster-year");
+      const posterViewer = document.getElementById("balloon-poster-viewer");
+      const posterOpen = document.getElementById("balloon-poster-open");
+
+      posterYear.addEventListener("change", () => {
+        const posterUrl = `${posterYear.value}#toolbar=0&navpanes=0&view=Fit`;
+        posterViewer.src = posterUrl;
+        posterViewer.title = `${posterYear.selectedOptions[0].textContent} high altitude balloon project poster`;
+        posterOpen.href = posterUrl;
+      });
+    </script>
   </body>
 </html>
