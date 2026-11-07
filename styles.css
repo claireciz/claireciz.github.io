@@ -135,9 +135,13 @@ h2 {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.5fr 0.9fr;
+  grid-template-columns: 1fr;
   gap: 2rem;
   align-items: center;
+}
+
+.hero-copy {
+  max-width: 760px;
 }
 
 .hero-actions {
@@ -225,12 +229,29 @@ h2 {
 
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem;
 }
 
 .info-card {
   padding: 1.5rem;
+}
+
+.focus-areas h3 {
+  margin-bottom: 1rem;
+}
+
+.focus-area-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+}
+
+.focus-area-grid .info-card {
+  display: flex;
+  align-items: center;
+  min-height: 7rem;
+  font-weight: 700;
 }
 
 .info-card ul {
@@ -454,6 +475,7 @@ footer {
 @media (max-width: 860px) {
   .hero-grid,
   .about-grid,
+  .focus-area-grid,
   .project-grid,
   .paper-card,
   .timeline-item {
