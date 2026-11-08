@@ -54,27 +54,54 @@
           </p>
         </article>
 
-        <!-- TECHNICAL CHALLENGE BLOCK -->
+        <!-- MICROPHONE ARRAY BLOCK -->
         <article class="content-block">
-          <h2>Microphone Array </h2>
+          <h2>Microphone Array</h2>
           <p>
-            Add the design challenge, key constraints, engineering tradeoffs, and critical decisions made during development.
+            The microphone array filters out surrounding noise to capture the speaker's voice with the greatest clarity. This is done by
+            combining the signals from four spatially separated microphones. Using a Max SNR beamforming algorithm, the array focuses
+            on a specific direction and attentuates other sounds. This produces a narraw beam pattern that improves speech intelligibility
+            and reduces the impact of ambient noise.
           </p>
         </article>
-
-        <!-- SYSTEM DESIGN BLOCK -->
+        
+        <!-- AUDIO FILTERING BLOCK -->
         <article class="content-block">
           <h2>Audio Filtering </h2>
           <p>
-            Describe the architecture, major components, tools and software used, hardware platform, and workflow or testing methodology.
+            After beamforming, the analog audio signal passes through a custom two‑stage, fourth‑order Bessel low‑pass filter. Bessel filters are well suited for audio 
+            because they have a linear phase response and minimal ripple, preserving the natural quality of speech. Our design cuts off at 8 kHz to remove high‑frequency noise before sampling.
+              4th order Bessel topology implemented in two cascaded stages.
+              Passband frequency of 8 kHz to cover the speech band.
+              Linear phase response preserves intelligibility and reduces distortion.
           </p>
         </article>
 
-        <!-- IMPACT & RESULTS BLOCK -->
+        <!-- SPEECH TO TEXT BLOCK -->
         <article class="content-block">
           <h2>Speech to Text </h2>
           <p>
-            Add the measurable outcome, lessons learned, performance metrics, or how the project advanced your understanding.
+            The filtered audio is digitized and processed by an automatic speech recognition (ASR) system running on a Raspberry Pi. This AI‑based engine converts 
+            speech into text in real time, enabling the captions to keep pace with a conversation.
+          </p>
+        </article>
+
+        <!-- AR DISPLAY BLOCK -->
+        <article class="content-block">
+          <h2>AR Display</h2>
+          <p>
+            The final subsystem projects the transcribed text into the user's field of view. A 1 inch OLED screen renders the captions, which are then collimated 
+            and shrunk through a Galilean optical setup. A small mirror reflects the image onto a piece of semi‑transparent plastic, overlaying the text on the 
+            real world without blocking the wearer’s vision.
+          </p>
+        </article>
+
+        <!-- GLASSES DESIGN BLOCK -->
+        <article class="content-block">
+          <h2>Glasses Design</h2>
+          <p>
+            3D printed glasses frame to house AR display and electronics. Power routed around the frame to connect to an accompanying battery pack with the Raspberry Pi. 
+            Designed to be modular, with the goal of being able to fit onto any pair of glasses. 
           </p>
         </article>
 
